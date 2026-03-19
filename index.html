@@ -5,64 +5,217 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contentflow - Automate Your TikTok Content</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-  <div style="position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;padding:14px 20px;text-align:center;font-size:0.85rem;color:#aaa;border-top:1px solid #333;">
-  This site uses no cookies and collects no personal data. 
-  <a href="/muha-automat/privacy.html" style="color:#ff4d4d;">Privacy Policy</a>
-</div>
-```
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', Arial, sans-serif; background:#0a0a0a; color:#fff; }
 
-**4 — In your TikTok app submission description, be more specific.** When you resubmit, in the "reason for submission" box write:
-```
-Resubmission after updating Privacy Policy and Terms of Service to meet TikTok requirements, and completing the website at https://muha-automat.github.io/muha-automat/. The app uses Login Kit for OAuth2 authentication of the developer's own account, and Content Posting API with video.upload and video.publish scopes to automatically publish original royalty-free video content to the developer's own TikTok profile. No third-party users are involved. All video content is sourced from Pexels under their free commercial license.
-body{font-family:'Segoe UI',Arial,sans-serif;background:#0a0a0a;color:#fff}
-.hero{text-align:center;padding:80px 20px;background:linear-gradient(135deg,#010101,#1a1a2e)}
-.logo{font-size:2.5rem;font-weight:800;color:#ff4d4d;margin-bottom:10px}
-.tagline{font-size:1.2rem;color:#aaa;margin-bottom:40px}
-.cta{background:#ff4d4d;color:white;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:600;font-size:1rem}
-.features{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:60px 20px;background:#111}
-.feature{max-width:250px;text-align:center}
-.feature h3{color:#ff4d4d;margin-bottom:10px;font-size:1.1rem}
-.feature p{color:#888;font-size:0.9rem;line-height:1.6}
-.section{padding:60px 20px;text-align:center;background:#0a0a0a}
-.section h2{font-size:1.8rem;margin-bottom:20px}
-.section p{color:#888;max-width:600px;margin:0 auto;line-height:1.7}
-footer{padding:30px;text-align:center;color:#555;font-size:0.85rem;background:#111}
-footer a{color:#555;margin:0 10px;text-decoration:none}
+/* NAV */
+nav { display:flex; justify-content:space-between; align-items:center; padding:18px 40px; background:#0a0a0a; border-bottom:1px solid #1a1a1a; position:sticky; top:0; z-index:100; }
+.nav-logo { font-size:1.3rem; font-weight:800; color:#ff4d4d; }
+.nav-links { display:flex; gap:28px; }
+.nav-links a { color:#aaa; text-decoration:none; font-size:0.9rem; transition:color 0.2s; }
+.nav-links a:hover { color:#fff; }
+
+/* HERO */
+.hero { text-align:center; padding:100px 20px 80px; background:linear-gradient(135deg,#010101,#1a1a2e); }
+.badge { display:inline-block; background:#1a1a2e; border:1px solid #ff4d4d44; color:#ff4d4d; font-size:0.8rem; font-weight:600; letter-spacing:0.1em; padding:6px 16px; border-radius:20px; margin-bottom:24px; text-transform:uppercase; }
+.hero h1 { font-size:3rem; font-weight:800; line-height:1.2; margin-bottom:18px; max-width:700px; margin-left:auto; margin-right:auto; }
+.hero h1 span { color:#ff4d4d; }
+.hero p { font-size:1.1rem; color:#aaa; max-width:540px; margin:0 auto 40px; line-height:1.7; }
+.hero-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.btn-primary { background:#ff4d4d; color:white; padding:14px 36px; border-radius:30px; text-decoration:none; font-weight:600; font-size:0.95rem; transition:background 0.2s; }
+.btn-primary:hover { background:#e03d3d; }
+.btn-secondary { background:transparent; color:#aaa; padding:14px 36px; border-radius:30px; text-decoration:none; font-weight:600; font-size:0.95rem; border:1px solid #333; transition:border-color 0.2s; }
+.btn-secondary:hover { border-color:#aaa; }
+
+/* FEATURES */
+.features { padding:80px 20px; background:#111; }
+.features h2 { text-align:center; font-size:1.9rem; margin-bottom:12px; }
+.features .sub { text-align:center; color:#888; margin-bottom:50px; }
+.feature-grid { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; max-width:1000px; margin:0 auto; }
+.feature-card { background:#1a1a1a; border:1px solid #222; border-radius:12px; padding:28px 24px; max-width:280px; flex:1; min-width:220px; }
+.feature-icon { font-size:2rem; margin-bottom:14px; }
+.feature-card h3 { color:#fff; margin-bottom:10px; font-size:1rem; }
+.feature-card p { color:#777; font-size:0.88rem; line-height:1.7; }
+
+/* HOW IT WORKS */
+.how { padding:80px 20px; background:#0a0a0a; }
+.how h2 { text-align:center; font-size:1.9rem; margin-bottom:12px; }
+.how .sub { text-align:center; color:#888; margin-bottom:50px; }
+.steps { display:flex; justify-content:center; gap:0; flex-wrap:wrap; max-width:900px; margin:0 auto; position:relative; }
+.step { text-align:center; padding:20px 30px; flex:1; min-width:180px; max-width:220px; position:relative; }
+.step-num { width:44px; height:44px; background:#ff4d4d; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1rem; margin:0 auto 16px; }
+.step h3 { font-size:0.95rem; margin-bottom:8px; }
+.step p { color:#777; font-size:0.85rem; line-height:1.6; }
+
+/* API SECTION */
+.api-section { padding:80px 20px; background:#111; text-align:center; }
+.api-section h2 { font-size:1.9rem; margin-bottom:16px; }
+.api-section p { color:#888; max-width:600px; margin:0 auto 30px; line-height:1.7; }
+.api-badges { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.api-badge { background:#1a1a1a; border:1px solid #333; padding:8px 18px; border-radius:20px; font-size:0.85rem; color:#aaa; }
+
+/* LEGAL */
+.legal-section { padding:80px 20px; background:#0a0a0a; }
+.legal-section h2 { text-align:center; font-size:1.9rem; margin-bottom:12px; }
+.legal-section .sub { text-align:center; color:#888; margin-bottom:40px; }
+.legal-cards { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; max-width:800px; margin:0 auto; }
+.legal-card { background:#111; border:1px solid #222; border-radius:10px; padding:24px; flex:1; min-width:220px; max-width:340px; }
+.legal-card h3 { color:#ff4d4d; margin-bottom:10px; font-size:1rem; }
+.legal-card p { color:#777; font-size:0.88rem; line-height:1.6; margin-bottom:14px; }
+.legal-card a { color:#ff4d4d; font-size:0.88rem; text-decoration:none; }
+
+/* CONTACT */
+.contact-section { padding:80px 20px; background:#111; text-align:center; }
+.contact-section h2 { font-size:1.9rem; margin-bottom:12px; }
+.contact-section p { color:#888; max-width:500px; margin:0 auto 24px; line-height:1.7; }
+.contact-email { display:inline-block; background:#ff4d4d; color:white; padding:12px 30px; border-radius:25px; text-decoration:none; font-weight:600; font-size:0.95rem; }
+
+/* FOOTER */
+footer { padding:30px 40px; background:#0a0a0a; border-top:1px solid #1a1a1a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+.footer-left { color:#555; font-size:0.85rem; }
+.footer-links { display:flex; gap:20px; }
+.footer-links a { color:#555; font-size:0.85rem; text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:#aaa; }
+
+/* COOKIE BANNER */
+.cookie-banner { position:fixed; bottom:0; left:0; right:0; background:#1a1a1a; padding:14px 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-top:1px solid #2a2a2a; z-index:999; }
+.cookie-banner p { color:#aaa; font-size:0.82rem; }
+.cookie-banner a { color:#ff4d4d; }
+.cookie-close { background:#ff4d4d; border:none; color:white; padding:7px 18px; border-radius:15px; cursor:pointer; font-size:0.82rem; font-weight:600; }
 </style>
 </head>
 <body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">⚡ Contentflow</div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how">How it works</a>
+    <a href="#legal">Legal</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
 <div class="hero">
-  <div class="logo">⚡ Contentflow</div>
-  <p class="tagline">Automate your TikTok content creation and publishing</p>
-  <a href="#features" class="cta">Learn More</a>
+  <div class="badge">Powered by TikTok API</div>
+  <h1>Automate Your <span>TikTok</span> Content Publishing</h1>
+  <p>Contentflow uses AI to generate compelling video concepts, source royalty-free footage, and publish directly to your TikTok account — automatically.</p>
+  <div class="hero-buttons">
+    <a href="#how" class="btn-primary">See How It Works</a>
+    <a href="#contact" class="btn-secondary">Contact Us</a>
+  </div>
 </div>
 
+<!-- FEATURES -->
 <div class="features" id="features">
-  <div class="feature">
-    <h3>🎬 Auto Content Generation</h3>
-    <p>AI-powered concept generation creates unique viral ideas for your TikTok every day.</p>
-  </div>
-  <div class="feature">
-    <h3>📹 Smart Video Sourcing</h3>
-    <p>Automatically finds the best matching stock footage from Pexels for your content.</p>
-  </div>
-  <div class="feature">
-    <h3>🚀 Direct Publishing</h3>
-    <p>Publishes directly to your TikTok account via the official TikTok Content Posting API.</p>
+  <h2>Everything You Need</h2>
+  <p class="sub">One tool to handle your entire TikTok content workflow</p>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <h3>AI Content Generation</h3>
+      <p>Creates unique viral video concepts tailored to your niche using advanced language models.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎬</div>
+      <h3>Smart Video Sourcing</h3>
+      <p>Automatically finds and selects the best matching stock footage from Pexels' library of free videos.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚀</div>
+      <h3>Direct TikTok Publishing</h3>
+      <p>Publishes directly to your TikTok account via the official Content Posting API — no manual steps.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Caption & Hashtag Optimization</h3>
+      <p>Generates platform-optimized captions and trending hashtags to maximize your reach.</p>
+    </div>
   </div>
 </div>
 
-<div class="section">
+<!-- HOW IT WORKS -->
+<div class="how" id="how">
   <h2>How It Works</h2>
-  <p>Contentflow uses artificial intelligence to generate compelling TikTok content concepts, sources matching royalty-free video footage, and publishes directly to your TikTok profile — all automatically through the official TikTok API.</p>
+  <p class="sub">Four simple steps from idea to published video</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Generate Concept</h3>
+      <p>AI creates a viral video concept with caption and hashtags</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Source Video</h3>
+      <p>Automatically finds matching royalty-free footage on Pexels</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Authenticate</h3>
+      <p>Securely connects to your TikTok account via OAuth2 Login Kit</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Publish</h3>
+      <p>Video is posted directly to your TikTok profile via Content Posting API</p>
+    </div>
+  </div>
 </div>
 
+<!-- API SECTION -->
+<div class="api-section">
+  <h2>Built on Official APIs</h2>
+  <p>Contentflow uses only official, approved APIs and royalty-free content sources. No scraping, no unauthorized access, no third-party data.</p>
+  <div class="api-badges">
+    <div class="api-badge">✓ TikTok Login Kit</div>
+    <div class="api-badge">✓ TikTok Content Posting API</div>
+    <div class="api-badge">✓ Pexels Free Video API</div>
+    <div class="api-badge">✓ OAuth 2.0 Authentication</div>
+  </div>
+</div>
+
+<!-- LEGAL -->
+<div class="legal-section" id="legal">
+  <h2>Legal & Privacy</h2>
+  <p class="sub">We are transparent about how we handle your data</p>
+  <div class="legal-cards">
+    <div class="legal-card">
+      <h3>🔒 Privacy Policy</h3>
+      <p>We collect minimal data — only your TikTok Open ID to authenticate your session. We never sell or share your data with third parties.</p>
+      <a href="/muha-automat/privacy.html">Read Privacy Policy →</a>
+    </div>
+    <div class="legal-card">
+      <h3>📋 Terms of Service</h3>
+      <p>By using Contentflow, you agree to our terms. You remain the owner of all content published through our application.</p>
+      <a href="/muha-automat/terms.html">Read Terms of Service →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <h2>Contact Us</h2>
+  <p>Have questions about Contentflow, our data practices, or the TikTok API integration? We respond within 48 hours.</p>
+  <a href="mailto:ifrahradouane@gmail.com" class="contact-email">ifrahradouane@gmail.com</a>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 Contentflow. All rights reserved.</p>
-  <a href="/muha-automat/privacy.html">Privacy Policy</a>
-  <a href="/muha-automat/terms.html">Terms of Service</a>
-  <a href="/muha-automat/contact.html">Contact</a>
+  <div class="footer-left">© 2026 Contentflow. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="/muha-automat/privacy.html">Privacy Policy</a>
+    <a href="/muha-automat/terms.html">Terms of Service</a>
+    <a href="#contact">Contact</a>
+  </div>
 </footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>This site uses no cookies and collects no personal data. <a href="/muha-automat/privacy.html">Privacy Policy</a></p>
+  <button class="cookie-close" onclick="document.getElementById('cookieBanner').style.display='none'">Got it</button>
+</div>
+
 </body>
 </html>
